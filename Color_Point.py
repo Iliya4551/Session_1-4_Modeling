@@ -20,12 +20,13 @@ class ColorPoint(Point): #inheritance
     def __str__(self):
         return f"<{self.color}: {self.x}, {self.y}>"
 
-p = ColorPoint(1,2,"red")
-p.color = "rojo"
-p.x = 200
+if __name__ == "__main__":
+    p = ColorPoint(1,2,"red")
+    p.color = "rojo"
+    p.x = 200
 
-print(p.distance_orig())
-print(p)
+    print(p.distance_orig())
+    print(p)
 # colors = ["red", "green", "blue", "yellow", "black", "magenta", "cyan",
 #           "white", "burgundy", "periwinkle", "marsala"]
 # color_points = []
