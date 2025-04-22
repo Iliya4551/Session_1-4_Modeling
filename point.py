@@ -1,3 +1,4 @@
+
 import random
 
 class Point:
@@ -12,23 +13,41 @@ class Point:
 
     def __str__(self):
         """
-        Magic method that is called hen we try to print
+        Magic method that is called when we try to print
         :return: <x, y>
         """
         return f"<{self.x}, {self.y}>"
 
     def __repr__(self):
+        """
+        Used when displaying a list of points.
+        Delegates to __str__ to maintain a consistent format.
+        """
         return self.__str__() #use the same way of printing as str
 
     def distance_orig(self):
+        """
+        Calculates the distance from the origin (0,0) using the Pythagorean theorem.
+        :return: float representing the distance from origin
+        """
         return (self.x**2 + self.y**2)**0.5 #square root of the sum of x
 
     def __gt__(self, other):
+        """
+        Overrides '>' to compare distances of two points from the origin.
+        :param other: another Point object
+        :return: True if self is farther from origin than other, else False
+        """
         my_distance = self.distance_orig()
         other_distance = other.distance_orig()
         return my_distance > other_distance
 
     def __eq__(self, other):
+        """
+        Overrides '==' to compare distances from origin.
+        :param other: another Point object
+        :return: True if both points are equally distant from origin, else False
+        """
         my_distance = self.distance_orig()
         other_distance = other.distance_orig()
         return my_distance == other_distance
